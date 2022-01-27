@@ -1,0 +1,31 @@
+.song-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 26px;
+    height: 52px;
+    background-color: rgba(51, 51, 51, 0.2);
+    border-radius: 14px;
+    cursor: pointer;
+    margin: 14px 0;
+
+    &:hover {
+        background-color: #224a9c;
+    }
+
+    .play-song {
+        margin-left: 20px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .name-song {
+        font-size: 15px;
+        font-weight: 600;
+    }
+    
+    .name-singer {
+        font-size: 12px;
+        font-weight: 300;
+    }
+}

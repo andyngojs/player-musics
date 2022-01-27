@@ -1,0 +1,109 @@
+.music {
+    background-image: linear-gradient(180deg,rgba(95, 178, 147, 1) 0%,rgba(54, 102, 85, 1) 40%,rgba(32, 53, 45, 1) 80%);
+    color: #fff;
+    padding: 15px 15px 30px;
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        margin-bottom: 12px;
+    }
+    
+    .name-header {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 auto;
+        text-transform: uppercase;
+    }
+
+    .music-thumb {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 24px;
+    }
+    
+    .music-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 28px;
+    }
+
+    .music-name {
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 9px;
+    }
+    
+    .music-singer {
+        font-size: 14px;
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .range {
+        -webkit-appearance: none;
+        width: 100%;
+        margin-bottom: 22px;
+    }
+    .range::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 2.5px;
+        border-radius: 14px;
+        cursor: pointer;
+        background-color: #eeee;
+    }
+    .range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        background-color: #258e8f;
+        width: 15px;
+        height: 15px;
+        border-radius: 100px;
+        margin-top: -6px;
+    }
+    .timer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #999;
+        font-size: 12px;
+        margin-bottom: 24px;
+    }
+    .controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0 40px;
+        margin-bottom: 26px;
+
+        & > * {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        & .play {
+            width: 50px;
+            height: 50px;
+            border-radius: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 20px;
+            border: 4px solid ;
+            border-color:  rgba(252,70,107,1);
+        }
+        & .show {
+            display: block;
+        }
+        & .hide {
+            display: none;
+        }
+        & .active {
+            color: #11eee4;
+        }
+    }
+}
