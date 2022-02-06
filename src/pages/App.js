@@ -4,6 +4,7 @@ import Player from "../components/Player";
 import Playlist from "../components/Playlist";
 
 function App() {
+  let currentIndexSong = 0;
   const [nameHeading, setNameHeading] = useState("Playing Now")
   const [isPlaying, setIsPlaying] = useState(false)
   const [isRepeat, setIsRepeat] = useState(false)
@@ -53,11 +54,13 @@ function App() {
         isRepeat={isRepeat}
         isShuffle={isShuffle}
         musicData={musicData}
+        currentIndexSong={currentIndexSong}
       />
       <Playlist 
         handleChangeHeading={ (isSwipe) => handleChangeHeading(isSwipe)} 
         isPlaying={isPlaying}
         musicData={musicData}
+        currentIndexSong={currentIndexSong}
       />
     </div>
   );

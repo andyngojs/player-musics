@@ -3,15 +3,11 @@ import React  from 'react';
 import ControlMusic from './ControlMusic';
 import "./Player.scss";
 
-function Player({ nameHeading, handlePlay, handleRepeat, handleShuffle, isPlaying, isRepeat, isShuffle, musicData }) {
-    let currentIndexSong = 0;
+function Player({ nameHeading, handlePlay, handleRepeat, handleShuffle, isPlaying, isRepeat, isShuffle, musicData, currentIndexSong }) {
     return (
         <div className="music">
             <div className="header">
                 <p className="name-header"> { nameHeading } </p>
-            </div>
-            <div className="music-thumb">
-                <img src="https://source.unsplash.com/random" alt="" />
             </div>
             {
                 // eslint-disable-next-line array-callback-return
@@ -19,6 +15,9 @@ function Player({ nameHeading, handlePlay, handleRepeat, handleShuffle, isPlayin
                     if (index === currentIndexSong) {
                         return (
                             <div key={index}>
+                                <div className="music-thumb">
+                                    <img src={item.image} alt="" />
+                                </div>
                                 <h3 className="music-name">{ item.name }</h3>
                                 <p className="music-singer"> { item.singer } </p>
                             </div>
