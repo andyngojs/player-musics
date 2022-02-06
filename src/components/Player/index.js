@@ -3,7 +3,8 @@ import React  from 'react';
 import ControlMusic from './ControlMusic';
 import "./Player.scss";
 
-function Player({ nameHeading, handlePlay, handleRepeat, handleShuffle, isPlaying, isRepeat, isShuffle }) {
+function Player({ nameHeading, handlePlay, handleRepeat, handleShuffle, isPlaying, isRepeat, isShuffle, musicData }) {
+    let currentIndexSong = 0;
     return (
         <div className="music">
             <div className="header">
@@ -12,8 +13,19 @@ function Player({ nameHeading, handlePlay, handleRepeat, handleShuffle, isPlayin
             <div className="music-thumb">
                 <img src="https://source.unsplash.com/random" alt="" />
             </div>
-            <h3 className="music-name">We doing pending response datas from backend</h3>
-            <p className="music-singer">So sorry</p>
+            {
+                // eslint-disable-next-line array-callback-return
+                musicData.map((item, index) => {
+                    if (index === currentIndexSong) {
+                        return (
+                            <div key={index}>
+                                <h3 className="music-name">{ item.name }</h3>
+                                <p className="music-singer"> { item.singer } </p>
+                            </div>
+                        )
+                    }
+                })
+            }
             <input type="range" name="range" className="range" />
             <div className="timer">
                 <div className="duration"> --:-- </div>

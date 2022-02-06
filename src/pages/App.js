@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Player from "../components/Player";
 import Playlist from "../components/Playlist";
 
@@ -7,6 +8,7 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isRepeat, setIsRepeat] = useState(false)
   const [isShuffle, setIsShuffle] = useState(false)
+  const [musicData, setMusicData] = useState([])
 
   const handlePlay = () => {
       setIsPlaying(!isPlaying)
@@ -29,6 +31,17 @@ function App() {
       }
     }, 1000)
   }
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/data")
+    .then((response) => {
+      setMusicData(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+
   return (
     <div className="app width-500">
       <Player
@@ -39,10 +52,12 @@ function App() {
         isPlaying = {isPlaying}
         isRepeat={isRepeat}
         isShuffle={isShuffle}
+        musicData={musicData}
       />
       <Playlist 
         handleChangeHeading={ (isSwipe) => handleChangeHeading(isSwipe)} 
         isPlaying={isPlaying}
+        musicData={musicData}
       />
     </div>
   );

@@ -4,7 +4,7 @@ import { UpOutlined, DownOutlined } from '@ant-design/icons'
 import './Playlist.scss';
 import SongItem from './SongItem';
 
-function Playlist({ handleChangeHeading, isPlaying }) {
+function Playlist({ handleChangeHeading, isPlaying, musicData }) {
     const [isSwipe, setIsSwipe] = useState(false)
 
     const swipeUp = () => {
@@ -14,13 +14,17 @@ function Playlist({ handleChangeHeading, isPlaying }) {
 
     return ( 
         <div className= {`music-playlist ${isSwipe ? 'swipeTop' : '' }`} >
-            <div className='btn-up' onClick={ e => swipeUp(e)}>
+            <div className='btn-up' onClick={swipeUp}>
             {
                 isSwipe ? <DownOutlined /> : <UpOutlined />
             }
             </div>
             <div className='wrapper'>
-                <SongItem isPlaying={isPlaying} />
+                {
+                    musicData.map((item, index) => {
+                        return <SongItem isPlaying={isPlaying} musicData={item} key={index} />
+                    })
+                }
             </div>
         </div>
     );
